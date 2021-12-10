@@ -17,9 +17,14 @@ export class ImagePageCollection extends PageCollection {
     }
 
     public load(): void {
-        for (const href of this.imagesHref) {
-            const page = new ImagePage(this.render, href, PageDensity.SOFT);
 
+        for (let index = 0; index < this.imagesHref.length; index++) {
+            let page;
+            if (index === 0 || (index === this.imagesHref.length - 1)) {
+                page = new ImagePage(this.render, this.imagesHref[index], PageDensity.HARD);
+            } else {
+                page = new ImagePage(this.render, this.imagesHref[index], PageDensity.SOFT);
+            }
             page.load();
             this.pages.push(page);
         }
