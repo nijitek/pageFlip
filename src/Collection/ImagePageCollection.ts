@@ -23,7 +23,7 @@ export class ImagePageCollection extends PageCollection {
             if (index === 0 || (index === this.imagesHref.length - 1)) {
                 page = new ImagePage(this.render, this.imagesHref[index], PageDensity.HARD);
             } else {
-                page = new ImagePage(this.render, this.imagesHref[index], PageDensity.SOFT);
+                page = new ImagePage(this.render, this.imagesHref[index], PageDensity.HARD);
             }
             page.load();
             this.pages.push(page);
